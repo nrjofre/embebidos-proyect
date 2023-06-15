@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% block title %}Retrieve a Document{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form enctype="multipart/form-data" method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="hidden" name="rut" value={{user.username}}>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+{% endblock %}
