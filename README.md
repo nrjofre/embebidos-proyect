@@ -4,7 +4,7 @@
 - en webapp/api/migrations borrar las migraciones menos el _init_.py (tienen estilo 0001_initial.py etc)
 - hacer ```cd webapp```
 - correr:
-    1. ```python manage.py makemigrations``` (corre las los modelos para creacion de base de datos, esto se tiene que correr cada vez que se haga un cambio en los modelos de datos)
+    1. ```python manage.py makemigrations``` (corre los modelos para creacion de base de datos, esto se tiene que correr cada vez que se haga un cambio en los modelos de datos)
     2. ```python manage.py migrate``` (ejecuta las migraciones)
     3. ```python manage.py createsuperuser``` (esto para crear un usuario administrador y poder usar la parte del admin, seguir instrucciones de consola)
     4. ```python manage.py runserver``` (corre la pagina en el ip que te pone)
