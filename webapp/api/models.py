@@ -20,6 +20,5 @@ class Document(models.Model):
         return str(self.name)
     
 class Retrieve(models.Model):
-    image = models.ImageField(blank=True, upload_to="images/")
     rut = models.CharField(max_length=10)
-    password = models.IntegerField()
+    password = models.CharField(max_length=6)

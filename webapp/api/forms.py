@@ -26,4 +26,4 @@ class RetrieveForm(ModelForm):
     rut = forms.CharField(widget=forms.HiddenInput())
     class Meta:
         model = Retrieve
-        fields = ["image", "rut", "password"]
+        fields = ["rut", "password"]

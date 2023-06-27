@@ -1,12 +1,62 @@
 {% extends 'main.html' %}
 {% block title %}Retrieve a Document{% endblock %}
 {% load crispy_forms_tags %}
-
+{% load static %}
 {% block content %}
-    <form enctype="multipart/form-data" method="POST" class="form-group">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input type="hidden" name="rut" value={{user.username}}>
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+    <script src="{% static 'html5-qrcode.min.js' %}"></script>
+    <script>
+        let html5QrcodeScanner
+
+        function onScanSuccess(decodedText, decodedResult) {
+            if (html5QrcodeScanner === undefined) {
+                alert('Scanner not initialized');
+                return;
+            }
+
+            if (!decodedText.includes('?')) {
+                alert('Are you reading a valid document?');
+                return;
+            }
+
+            const [url, query] = decodedText.split('?')
+
+            const urlQueryParams = new URLSearchParams(query);
+
+            const rutValue = urlQueryParams.get('RUN')
+
+            html5QrcodeScanner.clear();
+
+            const element = document.getElementById('document-result');
+
+            element.innerHTML = `We have found a document: ${rutValue}`;
+
+            var strippedValue = rutValue.replace(/-/g, '');
+
+            document.getElementById("rut").value = strippedValue
+
+            
+        }
+
+        function startScan() {
+            html5QrcodeScanner = new Html5QrcodeScanner(
+                "reader",
+                { fps: 10, qrbox: 250 }
+            );
+            html5QrcodeScanner.render(onScanSuccess);
+        }
+    </script>
+    <body>  
+        <button onclick="startScan()" class="btn btn-success">Start QR</button>
+    
+        <div style="width: 500px" id="reader"></div>
+    
+        <p id="document-result"></p>
+
+        <form enctype="multipart/form-data" method="POST" class="form-group">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="hidden" name="rut" id="rut">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    <body>
 {% endblock %}

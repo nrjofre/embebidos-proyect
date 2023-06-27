@@ -1,19 +1,17 @@
 {% extends 'main.html' %}
 {% block content %}
 
-{% if user.is_authenticated %}
-    {% if user.is_staff %}
-        <br>
-        <h2>Document Created Succesfully</h2>
-        <br>
-        <h2 style="color: red;">Document Password: {{password}}</h2>
-        <h4>Remember to deliver this password to the client</h4>
-    {% else %}
-        <br>
-        <h2>Document Retrieved Succesfully</h2>
-        <br>
-        <h2>Your Document is in: {{password}}</h2>
-    {% endif %}
+{% if user.is_staff %}
+    <br>
+    <h2>Document Created Succesfully</h2>
+    <br>
+    <h2 style="color: red;">Document Password: {{password}}</h2>
+    <h4>Remember to deliver this password to the client</h4>
+{% else %}
+    <br>
+    <h2>Document Retrieved Succesfully</h2>
+    <br>
+    <h2>Your Document is in despenser slot: {{password}}</h2>
 {% endif %}
 
 {% endblock content %}

@@ -1,4 +1,79 @@
 {% extends 'main.html' %}
 {% block content %}
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .image-section {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .caption {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .caption span {
+            font-weight: normal;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+
+    <div class="header">
+        <h1>Document Dispenser Management System</h1>
+    </div>
+
+    <div class="container">
+        <div class="image-section">
+            <div class="caption">Efficiently manage <span>important documents</span></div>
+            <img src="media/images/1.jpg" alt="Government Documents">
+        </div>
+
+        <div class="image-section">
+            <div class="caption">Streamline document <span>digitalization</span></div>
+            <img src="media/images/2.jpg" alt="Digitalization">
+        </div>
+
+        <div class="image-section">
+            <div class="caption">Enhance document <span>security</span></div>
+            <img src="media/images/3.jpg" alt="Security">
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2023 Document Dispenser Management System. All rights reserved.
+    </div>
+
 {% endblock content %}
