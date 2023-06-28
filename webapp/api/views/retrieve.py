@@ -21,7 +21,7 @@ class Retrieve(View):
                 password = request.POST["password"]
                 #form.save()
                 try:
-                    doc = Document.objects.get(password=password, user=User.objects.get(username=rut))
+                    doc = Document.objects.get(password=password, rut=rut)
                     return render(request, "succesfull.html", {"password": doc.dispenser_slot})
                 except ObjectDoesNotExist:
                     form = RetrieveForm()

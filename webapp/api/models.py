@@ -9,7 +9,7 @@ SLOT_CHOICES = (
     )
 
 class Document(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user")
+    rut = models.CharField(max_length=18)
     name = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
     dispenser_slot = models.IntegerField(choices=SLOT_CHOICES)
