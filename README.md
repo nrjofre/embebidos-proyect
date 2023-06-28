@@ -3,6 +3,10 @@
     - ```pip install -r requirements.txt```
 - en webapp/api/migrations borrar las migraciones menos el _init_.py (tienen estilo 0001_initial.py etc)
 - hacer ```cd webapp```
+- ```pip install django```
+- ```pip install djangorestframework```
+- ```pip install django-crispy-forms```
+- ```pip install crispy-bootstrap5```
 - correr:
     1. ```python manage.py makemigrations``` (corre los modelos para creacion de base de datos, esto se tiene que correr cada vez que se haga un cambio en los modelos de datos)
     2. ```python manage.py migrate``` (ejecuta las migraciones)
